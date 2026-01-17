@@ -114,7 +114,7 @@ const router = express.Router();
 /**
  * @swagger
  * /api/auth/register:
- *   post:
+ *    post:
  *     summary: Register a new user
  *     description: Creates a new user account and sends a verification email.
  *     tags: [Authentication]
@@ -124,7 +124,7 @@ const router = express.Router();
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/RegisterRequest'
- *     responses:
+ *    responses:
  *       201:
  *         description: Registration successful. Verification email sent.
  *         content:

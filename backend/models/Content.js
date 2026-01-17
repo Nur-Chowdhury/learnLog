@@ -9,6 +9,10 @@ const ContentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    slug: {
+        type: String,
+        required: true,
+    },
     access: { 
         type: String, 
         enum: ["free", "premium"] ,

@@ -52,7 +52,7 @@ export const verifyEmailController = async (req, res) => {
             return res.status(400).json({message: "Invalid link"});
         }
 
-        user.isVerified = true;
+        user.isEmailVerified = true;
         await user.save();
         await verifyToken.deleteOne();
 
@@ -77,7 +77,7 @@ export const loginController = async (req, res) => {
         if(!isMatch){
             return res.status(400).json({message: "Invalid credentials!"});
         }
-        if(!user.isVerified) {
+        if(!user.isEmailVerified) {
             let verifyToken = await Token.findOne({userID: user._id});
             if(!verifyToken) {
                 verifyToken = await Token.create({
