@@ -1,5 +1,6 @@
 import Content from '../models/Content.js';
 import User from '../models/User.js';
+import { hasActiveSubscription } from '../utils/checkSubscription.js';
 
 export const createContent = async (req, res) => {
     try {
@@ -25,8 +26,9 @@ export const createContent = async (req, res) => {
 export const getContents = async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
+        const isSubscribed = await hasActiveSubscription(user.id);
 
-        const contents = user.role === "admin" || user.isSubscribed
+        const contents = user.role === "admin" || isSubscribed
             ? await Content.find()
             : await Content.find({ access: "free" });
 
@@ -40,12 +42,13 @@ export const getContentById = async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
         const { id } = req.params;
+        const isSubscribed = await hasActiveSubscription(user.id);
 
         const content = await Content.findById(id);
         if (!content) {
             return res.status(404).json({ message: "Content not found!" });
         }
-        if (content.access === 'premium' && !user.role !== 'admin' && !user.isSubscribed) {
+        if (content.access === 'premium' && user.role !== 'admin' && !isSubscribed) {
             return res.status(403).json({message: "Upgrade to access premium content"});
         }
         res.json(content);
@@ -57,6 +60,7 @@ export const getContentById = async (req, res) => {
 export const searchContent = async (req, res) => {
     try {
         const { q, page = 0 } = req.query;
+        const isSubscribed = await hasActiveSubscription(req.user.id);
 
         if (!q) {
             return res.status(400).json({message: "Search query is required!"});
@@ -67,12 +71,18 @@ export const searchContent = async (req, res) => {
         const limit = 15;
         const skip = parseInt(page, 10) * limit;
 
-        const contents = await Content.find({
-            slug: { $regex: slugQuery, $options: "i" }
-        })
-        .skip(skip)
-        .limit(limit);
-
+        const contents = isSubscribed
+            ? await Content.find({
+                slug: { $regex: slugQuery, $options: "i" }
+            })
+            .skip(skip)
+            .limit(limit)
+            : await Content.find({
+                access: "free",
+                slug: { $regex: slugQuery, $options: "i" }
+            })
+            .skip(skip)
+            .limit(limit);
         res.json(contents);
     } catch (error) {
         res.status(500).json({ message: "Server Error" });

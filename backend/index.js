@@ -6,6 +6,7 @@ import setupSwagger from "./configs/swagger.js";
 import authRoutes from "./routes/authRoutes.js";
 import contentRoutes from "./routes/contentRoutes.js";
 import subcriptionRoutes from "./routes/subscriptionRoutes.js";
+import ratingRoutes from "./routes/ratingRoutes.js";
 import { stripeWebhook } from "./controllers/stripeWebhookController.js";
 
 connectDB();
@@ -26,6 +27,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/contents", contentRoutes);
 app.use("/api/subscriptions", subcriptionRoutes);
+app.use("/api/ratings", ratingRoutes);
 
 const PORT = process.env.PORT || 5174;
 
