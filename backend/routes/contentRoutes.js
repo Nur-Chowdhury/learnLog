@@ -7,15 +7,15 @@ import {
     searchContent,
     updateContent
 } from "../controllers/contentControllers.js";
-import { verifyUser } from "../middlewares/VerifyUser.js";
+import { verifyUser } from "../middlewares/verifyUser.js";
 
 const router = express.Router();
 
 /**
  * @swagger
  * tags:
- *   name: Content
- *   description: Content management APIs
+ *   - name: Content
+ *     description: Content management APIs
  */
 
 /**
@@ -24,17 +24,9 @@ const router = express.Router();
  *   get:
  *     summary: Get all accessible contents
  *     tags: [Content]
- *     security:
- *       - bearerAuth: []
  *     responses:
  *       200:
  *         description: List of contents
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/Content'
  */
 router.get("/", verifyUser, getContents);
 
@@ -44,20 +36,14 @@ router.get("/", verifyUser, getContents);
  *   get:
  *     summary: Search contents
  *     tags: [Content]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: query
  *         name: q
  *         required: true
- *         schema:
- *           type: string
- *         description: Search keyword
+ *         example: javascript
  *       - in: query
  *         name: page
- *         schema:
- *           type: number
- *           default: 0
+ *         example: 0
  *     responses:
  *       200:
  *         description: Search results
@@ -70,21 +56,16 @@ router.get("/search", verifyUser, searchContent);
  *   get:
  *     summary: Get content by ID
  *     tags: [Content]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         schema:
- *           type: string
+ *         example: 65abc123def4567890abcd12
  *     responses:
  *       200:
  *         description: Content found
  *       403:
  *         description: Premium access required
- *       404:
- *         description: Content not found
  */
 router.get("/:id", verifyUser, getContentById);
 
@@ -94,31 +75,17 @@ router.get("/:id", verifyUser, getContentById);
  *   post:
  *     summary: Create content (Admin only)
  *     tags: [Content]
- *     security:
- *       - bearerAuth: []
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - title
- *               - description
- *               - access
- *             properties:
- *               title:
- *                 type: string
- *               description:
- *                 type: string
- *               access:
- *                 type: string
- *                 enum: [free, premium]
+ *           example:
+ *             title: Intro to Node.js
+ *             description: Learn backend with Node
+ *             access: premium
  *     responses:
  *       201:
- *         description: Content created successfully
- *       403:
- *         description: Admin only
+ *         description: Content created
  */
 router.post("/", verifyUser, createContent);
 
@@ -128,33 +95,20 @@ router.post("/", verifyUser, createContent);
  *   put:
  *     summary: Update content (Admin only)
  *     tags: [Content]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         schema:
- *           type: string
+ *         example: 65abc123def4567890abcd12
  *     requestBody:
- *       required: true
  *       content:
  *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *               description:
- *                 type: string
- *               access:
- *                 type: string
- *                 enum: [free, premium]
+ *           example:
+ *             title: Updated title
+ *             access: free
  *     responses:
  *       200:
  *         description: Content updated
- *       403:
- *         description: Admin only
  */
 router.put("/:id", verifyUser, updateContent);
 
@@ -164,19 +118,14 @@ router.put("/:id", verifyUser, updateContent);
  *   delete:
  *     summary: Delete content (Admin only)
  *     tags: [Content]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         schema:
- *           type: string
+ *         example: 65abc123def4567890abcd12
  *     responses:
  *       200:
- *         description: Content deleted successfully
- *       403:
- *         description: Admin only
+ *         description: Content deleted
  */
 router.delete("/:id", verifyUser, deleteContent);
 
