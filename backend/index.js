@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 import connectDB from "./configs/db.js";
 import setupSwagger from "./configs/swagger.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -20,6 +21,13 @@ app.post(
     "/api/webhooks/stripe",
     express.raw({ type: "application/json" }),
     stripeWebhook
+);
+
+app.use(
+    cors({
+        origin: true,
+        credentials: true
+    })
 );
 
 app.use(express.json());
