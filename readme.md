@@ -46,9 +46,6 @@ It supports secure authentication, gated free/premium content access, and recurr
   - Activates user subscription
   - Creates subscription record
 
-- `invoice.payment_succeeded`
-  - Extends subscription expiration date
-
 **Security**
 
 - Stripe webhook signature verification to prevent spoofing
@@ -94,8 +91,8 @@ CLIENT_URL=YOUR_CLIENT_URL
 JWT_SECRET=YOUR_JWT_SECRET_KEY
 
 # Stripe Configuration
-STRIPE_SECRET_KEY=sk_test_...
-STRIPE_WEBHOOK_SECRET=whsec_...
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY
+STRIPE_WEBHOOK_SECRET=YOUR_STRIPE_WEBHOOK_SECRET
 ```
 
 ---

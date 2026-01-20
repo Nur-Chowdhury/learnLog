@@ -1,0 +1,1272 @@
+{
+  "info": {
+    "_postman_id": "5ea87250-cbe0-4ce8-aa13-2cbaf4b830f9",
+    "name": "LearnLog Backend API",
+    "description": "REST API for subscription-based learning platform with Stripe payment integration.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29982068"
+  },
+  "item": [
+    {
+      "name": "register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Abir\",\r\n  \"email\": \"abirchowdhury560@gmail.com\",\r\n  \"password\": \"Password123!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/register",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Abir\",\r\n  \"email\": \"abirchowdhury560@gmail.com\",\r\n  \"password\": \"Password123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "86"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"56-Z8YVSQ1eYudBRzz5kEey2CBZAqE\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:35:31 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Registration successful! Please check your email to verify your account.\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"abirchowdhury560@gmail.com\",\r\n  \"password\": \"Password123!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"abirchowdhury560@gmail.com\",\r\n  \"password\": \"Password123!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NmRmYWUxZmZiMzMyN2JhNWYzNmE3YSIsInJvbGUiOiJsZWFybmVyIiwiaWF0IjoxNzY4ODE1NTczLCJleHAiOjE3Njg5MDE5NzN9.qzYqgMntYbLiUQY31x69AlSCgsL8duzzCVfCY2iYB8c; Max-Age=86400; Path=/; Expires=Tue, 20 Jan 2026 09:39:33 GMT; HttpOnly; Secure; SameSite=Strict"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "30"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1e-DOWvfMhj05v4eN+mg6AlHJrIPp8\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:39:33 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Login successful\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "logout",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/auth/logout",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "logout"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; HttpOnly; Secure; SameSite=Strict"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "31"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1f-vYmtThEV0qgPmOaoi5WLoJuDA80\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:41:25 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Logout successful\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "getCurrentUser",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/users/me",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "users",
+            "me"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/users/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "users",
+                "me"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "235"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"eb-fyNzQnwH5VVeAbW5gAd/WAuPMQA\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:43:21 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"success\": true,\n    \"user\": {\n        \"_id\": \"696dfae1ffb3327ba5f36a7a\",\n        \"name\": \"Abir\",\n        \"email\": \"abirchowdhury560@gmail.com\",\n        \"role\": \"learner\",\n        \"isEmailVerified\": true,\n        \"createdAt\": \"2026-01-19T09:35:29.358Z\",\n        \"updatedAt\": \"2026-01-19T09:37:36.999Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Subscription (Stripe Checkout)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"plan\": \"monthly\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/subscriptions/subscribe",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "subscriptions",
+            "subscribe"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"plan\": \"monthly\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/subscriptions/subscribe",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscriptions",
+                "subscribe"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "451"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1c3-uO/VQ2mBIc2EVHHqk9oFoPic2zg\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 10:01:05 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"checkoutUrl\": \"https://checkout.stripe.com/c/pay/cs_test_a1IoYPAn7BxTwuk7AQWvuZU9uBfcuSkpqNp3NUVRYywuyfeHd3cJnJNphd#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdkdWxOYHwnPyd1blpxYHZxWjA0VnRsZzxObVNKPDJTYTRwRklIZ2ptXE5TPGBfYUdfNUhRPF1xQndWbmh8c0JrY0tVTUZSdXxjbV0wcndKTEtjbXZMMEprNEE8b0xQZmRdZnFAajNBZm5ENTVWcFFqSk10fCcpJ2N3amhWYHdzYHcnP3F3cGApJ2dkZm5id2pwa2FGamlqdyc%2FJyZjY2NjY2MnKSdpZHxqcHFRfHVgJz8ndmxrYmlgWmxxYGgnKSdga2RnaWBVaWRmYG1qaWFgd3YnP3F3cGB4JSUl\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get My Subscription",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/subscriptions/me",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "subscriptions",
+            "me"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/subscriptions/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscriptions",
+                "me"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "279"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"117-GZJq2KvYXKRpTU12zj+J4mbD0dQ\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 10:06:40 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"_id\": \"696e02202983eddaf6fc7333\",\n    \"user\": \"696dfae1ffb3327ba5f36a7a\",\n    \"plan\": \"monthly\",\n    \"price\": 100,\n    \"status\": \"active\",\n    \"expiresAt\": \"2026-02-19T10:06:24.454Z\",\n    \"startedAt\": \"2026-01-19T10:06:24.467Z\",\n    \"createdAt\": \"2026-01-19T10:06:24.472Z\",\n    \"updatedAt\": \"2026-01-19T10:06:24.472Z\",\n    \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "Cancel Subscription",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/subscriptions/cancel",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "subscriptions",
+            "cancel"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/subscriptions/cancel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "subscriptions",
+                "cancel"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "49"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"31-3vMp1r0FjI+nZkW1XyzRh2BWhYA\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 10:09:36 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Subscription cancelled successfully\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Create Content (Admin Only)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Introduction to Node.js\",\r\n  \"description\": \"Learn backend basics\",\r\n  \"access\": \"free\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contents",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contents"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Introduction to Node.js\",\r\n  \"description\": \"Learn backend basics\",\r\n  \"access\": \"free\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/contents",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contents"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "284"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"11c-nqzpQuRNUA3kSjhrLpLeUrgqZwc\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:49:59 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"title\": \"Introduction to Node.js\",\n    \"description\": \"Learn backend basics\",\n    \"slug\": \"introduction-to-node.js-learn-backend-basics-free\",\n    \"access\": \"free\",\n    \"averageRating\": 0,\n    \"_id\": \"696dfe47ef374e49427a30f7\",\n    \"createdAt\": \"2026-01-19T09:49:59.163Z\",\n    \"updatedAt\": \"2026-01-19T09:49:59.163Z\",\n    \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Contents based on access",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/contents",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contents"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/contents",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contents"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "569"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"239-4piVc8Pmqz+SbBM11/2GkMO1C5A\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:51:57 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"_id\": \"696d50fd7b11f65b9965dd31\",\n        \"title\": \"Intro to Node.js\",\n        \"description\": \"Learn backend with Node\",\n        \"slug\": \"intro-to-node.js-learn-backend-with-node-premium\",\n        \"access\": \"premium\",\n        \"averageRating\": 0,\n        \"createdAt\": \"2026-01-18T21:30:37.973Z\",\n        \"updatedAt\": \"2026-01-18T21:30:37.973Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"696dfe47ef374e49427a30f7\",\n        \"title\": \"Introduction to Node.js\",\n        \"description\": \"Learn backend basics\",\n        \"slug\": \"introduction-to-node.js-learn-backend-basics-free\",\n        \"access\": \"free\",\n        \"averageRating\": 0,\n        \"createdAt\": \"2026-01-19T09:49:59.163Z\",\n        \"updatedAt\": \"2026-01-19T09:49:59.163Z\",\n        \"__v\": 0\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Content By ID based on access",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/contents/696d50fd7b11f65b9965dd31",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contents",
+            "696d50fd7b11f65b9965dd31"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/contents/696d50fd7b11f65b9965dd31",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contents",
+                "696d50fd7b11f65b9965dd31"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "282"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"11a-Oh/CWTFNyhHziWXSurgacFt5+sw\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:53:48 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"_id\": \"696d50fd7b11f65b9965dd31\",\n    \"title\": \"Intro to Node.js\",\n    \"description\": \"Learn backend with Node\",\n    \"slug\": \"intro-to-node.js-learn-backend-with-node-premium\",\n    \"access\": \"premium\",\n    \"averageRating\": 0,\n    \"createdAt\": \"2026-01-18T21:30:37.973Z\",\n    \"updatedAt\": \"2026-01-18T21:30:37.973Z\",\n    \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "Search Content based on access",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/contents/search?q=node&page=0",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contents",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "node"
+            },
+            {
+              "key": "page",
+              "value": "0"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/contents/search?q=node&page=0",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contents",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "node"
+                },
+                {
+                  "key": "page",
+                  "value": "0"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "286"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"11e-9gDGBFtOIdKzAHdpGT1wLSZ0nbg\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:56:08 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"_id\": \"696dfe47ef374e49427a30f7\",\n        \"title\": \"Introduction to Node.js\",\n        \"description\": \"Learn backend basics\",\n        \"slug\": \"introduction-to-node.js-learn-backend-basics-free\",\n        \"access\": \"free\",\n        \"averageRating\": 0,\n        \"createdAt\": \"2026-01-19T09:49:59.163Z\",\n        \"updatedAt\": \"2026-01-19T09:49:59.163Z\",\n        \"__v\": 0\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Update Content (Admin)",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Advanced Node.js\",\r\n  \"description\": \"Deep dive\",\r\n  \"access\": \"free\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/contents/696dfe47ef374e49427a30f7",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contents",
+            "696dfe47ef374e49427a30f7"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Advanced Node.js\",\r\n  \"description\": \"Deep dive\",\r\n  \"access\": \"free\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/contents/696dfe47ef374e49427a30f7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contents",
+                "696dfe47ef374e49427a30f7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "248"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"f8-48FIc0hzdRwkCIdqozcuUfEsRAM\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 09:59:16 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"_id\": \"696dfe47ef374e49427a30f7\",\n    \"title\": \"Advanced Node.js\",\n    \"description\": \"Deep dive\",\n    \"slug\": \"advanced-node.js-deep-dive-free\",\n    \"access\": \"free\",\n    \"averageRating\": 0,\n    \"createdAt\": \"2026-01-19T09:49:59.163Z\",\n    \"updatedAt\": \"2026-01-19T09:59:16.042Z\",\n    \"__v\": 0\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Content (Admin)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/contents/696dfe47ef374e49427a30f7",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "contents",
+            "696dfe47ef374e49427a30f7"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/contents/696dfe47ef374e49427a30f7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "contents",
+                "696dfe47ef374e49427a30f7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "43"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2b-P1/vrbD4UlaJ0MwB6EBw/z0lyVc\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 10:18:51 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Content deleted successfully!\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Rate Content",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"rating\": 5,\r\n  \"review\": \"Excellent content!\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/ratings/696dfe47ef374e49427a30f7",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "ratings",
+            "696dfe47ef374e49427a30f7"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"rating\": 5,\r\n  \"review\": \"Excellent content!\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/ratings/696dfe47ef374e49427a30f7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ratings",
+                "696dfe47ef374e49427a30f7"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "255"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"ff-XNq0QRo7Es28kSog5MTYJDj7iZQ\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 10:12:19 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Rating submitted successfully\",\n    \"rating\": {\n        \"_id\": \"696e0383efb21225e4ce94e1\",\n        \"content\": \"696dfe47ef374e49427a30f7\",\n        \"user\": \"696dfae1ffb3327ba5f36a7a\",\n        \"__v\": 0,\n        \"createdAt\": \"2026-01-19T10:12:19.659Z\",\n        \"rating\": 5,\n        \"updatedAt\": \"2026-01-19T10:12:19.659Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Ratings for a Content",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/ratings/696dfe47ef374e49427a30f7",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "ratings",
+            "696dfe47ef374e49427a30f7"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/ratings/696dfe47ef374e49427a30f7",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "ratings",
+                "696dfe47ef374e49427a30f7"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "273"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"111-ynRN1lHIbnVffrSWqNCXd25RMlA\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 19 Jan 2026 10:13:47 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"totalRatings\": 1,\n    \"averageRating\": 5,\n    \"ratings\": [\n        {\n            \"_id\": \"696e0383efb21225e4ce94e1\",\n            \"content\": \"696dfe47ef374e49427a30f7\",\n            \"user\": {\n                \"_id\": \"696dfae1ffb3327ba5f36a7a\",\n                \"name\": \"Abir\"\n            },\n            \"__v\": 0,\n            \"createdAt\": \"2026-01-19T10:12:19.659Z\",\n            \"rating\": 5,\n            \"updatedAt\": \"2026-01-19T10:12:19.659Z\"\n        }\n    ]\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
