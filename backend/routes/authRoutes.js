@@ -3,7 +3,6 @@ import {
     loginController,
     logoutController,
     registerController,
-    verifyEmailController,
 } from "../controllers/authControllers.js";
 import { verifyUser } from "../middlewares/verifyUser.js";
 
@@ -32,11 +31,11 @@ const router = express.Router();
  *             password: StrongPassword123
  *     responses:
  *       201:
- *         description: Registration successful. Verification email sent.
+ *         description: Registration successful.
  *         content:
  *           application/json:
  *             example:
- *               message: Registration successful! Please check your email.
+ *               message: Registration successful! Please Login.
  *       400:
  *         description: Invalid input
  *       409:
@@ -74,30 +73,6 @@ router.post("/register", registerController);
  */
 router.post("/login", loginController);
 
-/**
- * @swagger
- * /api/auth/verify/{id}/{token}:
- *   get:
- *     summary: Verify email
- *     tags: [Authentication]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         example: 64b1234abcde567890f12345
- *       - in: path
- *         name: token
- *         required: true
- *         example: email_verification_token
- *     responses:
- *       200:
- *         description: Email verified
- *         content:
- *           application/json:
- *             example:
- *               message: Email verified successfully
- */
-router.get("/verify/:id/:token", verifyEmailController);
 
 /**
  * @swagger

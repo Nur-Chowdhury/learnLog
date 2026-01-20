@@ -61,7 +61,7 @@ router.get("/me", verifyUser, getMySubscription);
  */
 router.delete("/cancel", verifyUser, cancelSubscription);
 
-router.get("/payment-success", successPayment);
-router.get("/payment-cancelled", cancelledPayment);
+router.get("/payment-success", verifyUser, successPayment);
+router.get("/payment-cancelled", verifyUser, cancelledPayment);
 
 export default router;

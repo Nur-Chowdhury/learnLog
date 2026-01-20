@@ -19,10 +19,6 @@ const UserSchema = new mongoose.Schema({
         enum: ["admin", "learner"], 
         default: "learner" 
     },
-    isEmailVerified: { 
-        type: Boolean, 
-        default: false 
-    },
 }, {timestamps: true});
 
 const User = mongoose.model("User", UserSchema);
