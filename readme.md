@@ -7,8 +7,8 @@ It supports secure authentication, gated free/premium content access, and recurr
 
 ## 🚀 Live Demo & Documentation
 
-- **Live API Base URL:** `https://learnlog-ouzs.onrender.com`
-- **Swagger Documentation:** `https://learnlog-ouzs.onrender.com/api-docs`
+- **Live API Base URL:** `https://learnlog-k8yz.onrender.com`
+- **Swagger Documentation:** `https://learnlog-k8yz.onrender.com/api-docs`
 
 ---
 
