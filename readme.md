@@ -71,7 +71,7 @@ It supports secure authentication, gated free/premium content access, and recurr
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/learnlog.git
+git clone https://github.com/Nur-Chowdhury/learnLog.git
 cd learnlog
 ```
 

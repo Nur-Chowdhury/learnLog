@@ -41,6 +41,7 @@ export const loginController = async (req, res) => {
         genTokenAndSetCookies(res, user._id, user.role);
         res.status(200).json({message: "Login successful!"});
     } catch (error) {
+        console.log(error);
         res.status(500).json({message: "Internal Server error"});
     }
 }
