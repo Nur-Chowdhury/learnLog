@@ -38,6 +38,8 @@ export const loginController = async (req, res) => {
             return res.status(400).json({message: "Invalid credentials!"});
         }
 
+        console.log(user);
+
         genTokenAndSetCookies(res, user._id, user.role);
         res.status(200).json({message: "Login successful!"});
     } catch (error) {
