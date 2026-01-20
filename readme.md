@@ -123,19 +123,8 @@ This project uses a **server-controlled Stripe Checkout flow** for maximum secur
 
 - Server:
   - Creates Stripe Customer if needed
-  - Generates Checkout Session (`mode: subscription`)
+  - Generates Checkout Session (`mode: payment`)
   - Returns Stripe checkout URL
-
----
-
-### 2️⃣ Payment
-
-- User completes payment on Stripe-hosted page
-- Stripe redirects to:
-
-  ```
-  CLIENT_URL/payment-success
-  ```
 
 ---
 
