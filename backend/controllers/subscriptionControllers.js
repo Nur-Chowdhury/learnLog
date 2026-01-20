@@ -37,8 +37,8 @@ export const startSubscription = async (req, res) => {
                     quantity: 1
                 }
             ],
-            success_url: "http://localhost:5174/api/subscriptions/payment-success",
-            cancel_url: "http://localhost:5174/api/subscriptions/payment-cancelled",
+            success_url: "https://learnlog-k8yz.onrender.com/api/subscriptions/payment-success",
+            cancel_url: "https://learnlog-k8yz.onrender.com/api/subscriptions/payment-cancelled",
             metadata: {
                 userId: req.user.id,
                 plan
